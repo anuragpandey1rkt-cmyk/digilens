@@ -9,10 +9,22 @@ const usersFormElement = document.getElementById('users-form')
 const testContainerElement = document.getElementById("main-test")
 const elementBody = document.body
 
-
 let users_tests_id;
 let shuffledQuestions, currentQuestionIndex
 let countRightAnswers = 0
+
+// Add Back button functionality
+document.querySelectorAll('.back-btn').forEach(btn => {
+    btn.onclick = () => {
+        testContainerElement.classList.add('hide');
+        testContainerElement2.classList.add('hide');
+        document.querySelector('.test-sections').classList.remove('hide');
+        document.getElementById('users-test-container').classList.remove('hide');
+        document.getElementById('users-container').classList.remove('hide');
+        if (typeof resetState === 'function') resetState();
+        if (typeof resetState2 === 'function') resetState2();
+    };
+});
 
 startButton.addEventListener('click', callUsersLoginForm)
 
@@ -24,16 +36,23 @@ nextButton.addEventListener('click', () => {
 closeButton.addEventListener('click', () => {
   questionContainerElement.classList.add('hide')
   elementBody.classList.remove('wrong', 'correct')
+  testContainerElement.classList.add('hide')
+  document.querySelector('.test-sections').classList.remove('hide')
+  document.getElementById('users-test-container').classList.remove('hide')
+  document.getElementById('users-container').classList.remove('hide')
 }) 
 
 function callUsersLoginForm() {
-  usersFormElement.classList.remove('hide')
-  testContainerElement.classList.add('hide')
-  createForm()
+  activeTestType = 1; // Mark Contrast Test as active
+  gsap.to(".test-sections", { opacity: 0, y: -20, duration: 0.3, onComplete: () => {
+      document.querySelector('.test-sections').classList.add('hide');
+      usersFormElement.classList.remove('hide');
+      gsap.fromTo("#users-form", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.4 });
+      createForm();
+  }});
 }
 
 function startTest(users_id, users_name) {
-  // debugger
   countRightAnswers = 0
   rightAnswers.innerHTML = countRightAnswers + " - out of 5 possible questions"
   answerButtonsElement.classList.remove('disable')
@@ -46,28 +65,26 @@ function startTest(users_id, users_name) {
 }
 
 function createUsersTest(users_id, users_name){
-
   let users_test = {
     test_name: "Contrast Test",
     test_result: 0,
     user_id: users_id,
     users_name: users_name
-}
+  }
 
-fetch("http://127.0.0.1:3000/users_tests", { 
-  method: "POST",
-  headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(users_test)
-})
-.then(resp => resp.json())
-.then(users_test => {
-  users_tests_id = users_test.id
+  fetch("http://127.0.0.1:3000/users_tests", { 
+    method: "POST",
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(users_test)
+  })
+  .then(resp => resp.json())
+  .then(users_test => {
+    users_tests_id = users_test.id
   })
 }
-
 
 function setNextQuestion() {
   resetState()
@@ -99,19 +116,18 @@ function resetState() {
 
 function selectAnswer(e) {
   const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
+  const correct = selectedButton.dataset.correct === 'true'
   setStatusClass(document.body, correct)
-  Array.from(answerButtonsElement.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct)
-  })
-  if (selectedButton.dataset = correct) {
+  
+  if (correct) {
     countRightAnswers++
   } 
+  
   if (shuffledQuestions.length > (currentQuestionIndex + 1)) {
     nextButton.classList.remove('hide') 
   } else {
     updateUsersTest(countRightAnswers, users_tests_id)
-    closeButton.innerText = 'Done'
+    closeButton.innerText = 'See Results'
     closeButton.classList.remove('hide')
   }
   answerButtonsElement.classList.add('disable')
@@ -119,7 +135,6 @@ function selectAnswer(e) {
 }
 
 function updateUsersTest(results, users_tests_id) {
-
   fetch(`http://127.0.0.1:3000/users_tests/${users_tests_id}`, { 
     method: "PATCH",
     body: JSON.stringify({
@@ -129,12 +144,12 @@ function updateUsersTest(results, users_tests_id) {
       "Content-type": "application/json; charset=UTF-8"
     },
   })
-    .then(res => res.json())
-    .then(users_test => {
-      let ut = new UsersTest(users_test.id, users_test.test_name, users_test.test_result, users_test.user_id, users_test.users_name)
-      ut.renderUsersTest();
-      })
-  }
+  .then(res => res.json())
+  .then(users_test => {
+    let ut = new UsersTest(users_test.id, users_test.test_name, users_test.test_result, users_test.user_id, users_test.users_name)
+    ut.renderUsersTest();
+  })
+}
 
 function setStatusClass(element, correct) {
   clearStatusClass(element)
@@ -149,4 +164,3 @@ function clearStatusClass(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
 }
-

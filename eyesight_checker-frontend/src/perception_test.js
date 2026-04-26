@@ -20,13 +20,20 @@ nextButton2.addEventListener('click', () => {
 closeButton2.addEventListener('click', () => {
   questionContainerElement2.classList.add('hide')
   elementBody.classList.remove('wrong', 'correct')
+  testContainerElement2.classList.add('hide')
+  document.querySelector('.test-sections').classList.remove('hide')
+  document.getElementById('users-test-container').classList.remove('hide')
+  document.getElementById('users-container').classList.remove('hide')
 }) 
 
-
 function callUsersLoginForm2() {
-  usersFormElement.classList.remove('hide')
-  testContainerElement2.classList.add('hide')
-  createForm()
+  activeTestType = 2; // Mark Perception Test as active
+  gsap.to(".test-sections", { opacity: 0, y: -20, duration: 0.3, onComplete: () => {
+      document.querySelector('.test-sections').classList.add('hide');
+      usersFormElement.classList.remove('hide');
+      gsap.fromTo("#users-form", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.4 });
+      createForm();
+  }});
 }
 
 function startTest2() {
@@ -42,25 +49,24 @@ function startTest2() {
 }
 
 function createUsersTest2(users_id, users_name){
-
   let users_test = {
     test_name: "Perception Test",
     test_result: 0,
     user_id: users_id,
     users_name: users_name
-}
+  }
 
-fetch("http://127.0.0.1:3000/users_tests", { 
-  method: "POST",
-  headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(users_test)
-})
-.then(resp => resp.json())
-.then(users_test => {
-  users_tests_id = users_test.id
+  fetch("http://127.0.0.1:3000/users_tests", { 
+    method: "POST",
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(users_test)
+  })
+  .then(resp => resp.json())
+  .then(users_test => {
+    users_tests_id = users_test.id
   })
 }
 
@@ -69,9 +75,7 @@ function setNextQuestion2() {
   showQuestion2(shuffledQuestions2[currentQuestionIndex2])
 }
 
-
 function showQuestion2(question) {
-  
   const img = document.createElement('img')
   img.src = 'images/' + question.question
   questionElement2.appendChild(img)
@@ -88,33 +92,31 @@ function showQuestion2(question) {
   answerButtonsElement2.classList.remove('disable')
 }
 
-
 function resetState2() {
   clearStatusClass2(document.body)
   nextButton2.classList.add('hide')
   while (answerButtonsElement2.firstChild) {
     answerButtonsElement2.removeChild(answerButtonsElement2.firstChild)
-    while (questionElement2.firstChild) {
-      questionElement2.removeChild(questionElement2.firstChild)
-    }
+  }
+  while (questionElement2.firstChild) {
+    questionElement2.removeChild(questionElement2.firstChild)
   }
 }
 
 function selectAnswer2(e) {
   const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
+  const correct = selectedButton.dataset.correct === 'true'
   setStatusClass2(document.body, correct)
-  Array.from(answerButtonsElement2.children).forEach(button => {
-    setStatusClass2(button, button.dataset.correct)
-  })
-  if (selectedButton.dataset = correct) {
+  
+  if (correct) {
     countRightAnswers2++
   } 
+  
   if (shuffledQuestions2.length > (currentQuestionIndex2 + 1)) {
     nextButton2.classList.remove('hide') 
   } else {
-    updateUsersTest(countRightAnswers2, users_tests_id)
-    closeButton2.innerText = 'Done'
+    updateUsersTest2(countRightAnswers2, users_tests_id)
+    closeButton2.innerText = 'See Results'
     closeButton2.classList.remove('hide')
   }
   answerButtonsElement2.classList.add('disable')
@@ -122,7 +124,6 @@ function selectAnswer2(e) {
 }
 
 function updateUsersTest2(results, users_tests_id) {
-
   fetch(`http://127.0.0.1:3000/users_tests/${users_tests_id}`, { 
     method: "PATCH",
     body: JSON.stringify({
@@ -132,10 +133,12 @@ function updateUsersTest2(results, users_tests_id) {
       "Content-type": "application/json; charset=UTF-8"
     },
   })
-    .then(res => res.json())
+  .then(res => res.json())
+  .then(users_test => {
     let ut = new UsersTest(users_test.id, users_test.test_name, users_test.test_result, users_test.user_id, users_test.users_name)
     ut.renderUsersTest();
-  }
+  })
+}
 
 function setStatusClass2(element, correct) {
   clearStatusClass2(element)
@@ -150,4 +153,3 @@ function clearStatusClass2(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
 }
-

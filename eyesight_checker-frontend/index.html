@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link href="styles.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     
     <script src="src/user.js"></script>
     <script src="src/users_test.js"></script>
@@ -15,54 +16,63 @@
     <title>Check your vision App</title>
 </head>
     <body>
-        <h1>CHECK YOUR VISION ONLINE </h1>
-        <div id="users-form" class="hide">
-            <h3>Please log in to start a test</h3>   
-        </div>
+        <main>
+            <h1>Check Your Vision</h1>
+            
+            <div id="users-form" class="hide">
+                <h3>Please log in to start a test</h3>
+                <div id="form-container"></div>
+                <button id="form-back-btn" class="btn secondary-btn">Back to Home</button>
+            </div>
 
-        <div id="users-container">
-            <h2>ALL USERS</h2>
-        </div>
+            <div class="test-sections">
+                <div id="main-test" class="container">
+                    <button class="back-btn btn secondary-btn">← Back</button>
+                    <h2>CONTRAST TEST</h2>
+                    <div id="question-container" class="hide">
+                        <div id="question">Question</div>
+                        <div id="answer-buttons" class="btn-grid">
+                            <button class="btn">Answer 1</button>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button id="start-btn" class="start-btn btn">Start Test</button>
+                        <button id="next-btn" class="next-btn btn hide">Next</button>
+                        <button id="close-btn" class="close-btn btn hide">Done</button>
+                    </div>
+                    <h4>Correct answers:</h4>
+                    <span id="right-answers">0</span>
+                </div>
 
-        <div id="users-test-container">  
-            <h2>USERS RESULTS: </h2>
-        </div>
-
-        <div id="main-test" class="container">
-            <h2>CONTRAST TEST</h2>
-            <div id="question-container" class="hide">
-                <div id="question">Question</div>
-                <div id="answer-buttons" class="btn-grid">
-                <button class="btn">Answer 1</button>
+                <div id="main-test-2" class="container-2">
+                    <button class="back-btn btn secondary-btn">← Back</button>
+                    <h2>PERCEPTION TEST</h2>
+                    <div id="question-container-2" class="hide">
+                        <div id="question-2">Question</div>
+                        <div id="answer-buttons-2" class="btn-grid">
+                            <button class="btn">Answer 1</button>
+                        </div>
+                    </div>
+                    <div class="controls-2">
+                        <button id="start-btn-2" class="start-btn btn">Start Test</button>
+                        <button id="next-btn-2" class="next-btn btn hide">Next</button>
+                        <button id="close-btn-2" class="close-btn btn hide">Done</button>
+                    </div>
+                    <h4>Correct answers:</h4>
+                    <span id="right-answers-2">0</span>
                 </div>
             </div>
-            <div class="controls">
-                <button id="start-btn" class="start-btn btn">Start Test</button>
-                <button id="next-btn" class="next-btn btn hide">Next</button>
-                <button id="close-btn" class="close-btn btn hide">Next</button>
-            </div>
-            <h4>Here below you can see number of questions you answered correctly: </h4>
-            <span id="right-answers"></span>
-        </div>
 
-
-        <div id="main-test-2" class="container-2">
-            <h2>PERCEPTION TEST</h2>
-            <div id="question-container-2" class="hide">
-                <div id="question-2">Question</div>
-                <div id="answer-buttons-2" class="btn-grid">
-                <button class="btn">Answer 1</button>
+            <div id="users-test-container">  
+                <div class="results-header">
+                    <h2>USERS RESULTS</h2>
+                    <button id="home-btn" class="btn secondary-btn">Return to Home</button>
                 </div>
             </div>
-            <div class="controls-2">
-                <button id="start-btn-2" class="start-btn btn">Start Test</button>
-                <button id="next-btn-2" class="next-btn btn hide">Next</button>
-                <button id="close-btn-2" class="close-btn btn hide">Next</button>
+
+            <div id="users-container">
+                <h2>ALL USERS</h2>
             </div>
-            <h4>Here below you can see number of questions you answered correctly: </h4>
-            <span id="right-answers-2"></span>
-        </div>
-
-
+        </main>
     </body>
 </html>
