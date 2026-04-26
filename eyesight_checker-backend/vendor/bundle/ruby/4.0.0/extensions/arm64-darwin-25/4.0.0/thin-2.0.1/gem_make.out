@@ -1,0 +1,272 @@
+current directory: /Users/anuragpandey/Downloads/eyesight_cheacker-master/eyesight_checker-backend/vendor/bundle/ruby/4.0.0/gems/thin-2.0.1/ext/thin_parser
+/opt/homebrew/opt/ruby/bin/ruby extconf.rb
+checking for main() in -lc... yes
+creating Makefile
+
+current directory: /Users/anuragpandey/Downloads/eyesight_cheacker-master/eyesight_checker-backend/vendor/bundle/ruby/4.0.0/gems/thin-2.0.1/ext/thin_parser
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260427-7023-1438s4 sitelibdir\=./.gem.20260427-7023-1438s4 clean
+
+current directory: /Users/anuragpandey/Downloads/eyesight_cheacker-master/eyesight_checker-backend/vendor/bundle/ruby/4.0.0/gems/thin-2.0.1/ext/thin_parser
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260427-7023-1438s4 sitelibdir\=./.gem.20260427-7023-1438s4
+compiling parser.c
+compiling thin.c
+parser.c:31:18: warning: unused variable 'http_parser_en_main' [-Wunused-const-variable]
+   31 | static const int http_parser_en_main = 1;
+      |                  ^~~~~~~~~~~~~~~~~~~
+thin.c:244:9: warning: 'rb_data_object_wrap_warning' is deprecated: by TypedData [-Wdeprecated-declarations]
+  244 |   obj = Data_Wrap_Struct(klass, NULL, Thin_HttpParser_free, hp);
+      |         ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:202:5: note: expanded from macro 'Data_Wrap_Struct'
+  202 |     rb_data_object_wrap(                          \
+      |     ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:366:31: note: expanded from macro 'rb_data_object_wrap'
+  366 | #define rb_data_object_wrap   RUBY_MACRO_SELECT(rb_data_object_wrap_2, RUBY_UNTYPED_DATA_WARNING)
+      |                               ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:50:35: note: expanded from macro 'RUBY_MACRO_SELECT'
+   50 | #define RUBY_MACRO_SELECT(x, y)   RBIMPL_MACRO_SELECT(x, y)
+      |                                   ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:49:35: note: expanded from macro 'RBIMPL_MACRO_SELECT'
+   49 | #define RBIMPL_MACRO_SELECT(x, y) x ## y
+      |                                   ^
+<scratch space>:147:1: note: expanded from here
+  147 | rb_data_object_wrap_1
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:364:31: note: expanded from macro 'rb_data_object_wrap_1'
+  364 | #define rb_data_object_wrap_1 rb_data_object_wrap_warning
+      |                               ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:280:1: note: 'rb_data_object_wrap_warning' has been explicitly marked deprecated here
+  280 | RBIMPL_ATTRSET_UNTYPED_DATA_FUNC()
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:47:5: note: expanded from macro 'RBIMPL_ATTRSET_UNTYPED_DATA_FUNC'
+   47 |     RBIMPL_ATTR_DEPRECATED(("by TypedData"))
+      |     ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+thin.c:259:3: warning: 'rb_data_object_get_warning' is deprecated: by TypedData [-Wdeprecated-declarations]
+  259 |   DATA_GET(self, http_parser, http);
+      |   ^
+./ext_help.h:5:34: note: expanded from macro 'DATA_GET'
+    5 | #define DATA_GET(from,type,name) Data_Get_Struct(from,type,name); RAISE_NOT_NULL(name);
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:278:34: note: expanded from macro 'Data_Get_Struct'
+  278 |     ((sval) = RBIMPL_CAST((type*)rb_data_object_get(obj)))
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:370:31: note: expanded from macro 'rb_data_object_get'
+  370 | #define rb_data_object_get    RUBY_MACRO_SELECT(rb_data_object_get_2, RUBY_UNTYPED_DATA_WARNING)
+      |                               ^
+note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:49:35: note: expanded from macro 'RBIMPL_MACRO_SELECT'
+   49 | #define RBIMPL_MACRO_SELECT(x, y) x ## y
+      |                                   ^
+<scratch space>:148:1: note: expanded from here
+  148 | rb_data_object_get_1
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:368:31: note: expanded from macro 'rb_data_object_get_1'
+  368 | #define rb_data_object_get_1  rb_data_object_get_warning
+      |                               ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:317:1: note: 'rb_data_object_get_warning' has been explicitly marked deprecated here
+  317 | RBIMPL_ATTRSET_UNTYPED_DATA_FUNC()
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:47:5: note: expanded from macro 'RBIMPL_ATTRSET_UNTYPED_DATA_FUNC'
+   47 |     RBIMPL_ATTR_DEPRECATED(("by TypedData"))
+      |     ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+thin.c:276:3: warning: 'rb_data_object_get_warning' is deprecated: by TypedData [-Wdeprecated-declarations]
+  276 |   DATA_GET(self, http_parser, http);
+      |   ^
+./ext_help.h:5:34: note: expanded from macro 'DATA_GET'
+    5 | #define DATA_GET(from,type,name) Data_Get_Struct(from,type,name); RAISE_NOT_NULL(name);
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:278:34: note: expanded from macro 'Data_Get_Struct'
+  278 |     ((sval) = RBIMPL_CAST((type*)rb_data_object_get(obj)))
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:370:31: note: expanded from macro 'rb_data_object_get'
+  370 | #define rb_data_object_get    RUBY_MACRO_SELECT(rb_data_object_get_2, RUBY_UNTYPED_DATA_WARNING)
+      |                               ^
+note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:49:35: note: expanded from macro 'RBIMPL_MACRO_SELECT'
+   49 | #define RBIMPL_MACRO_SELECT(x, y) x ## y
+      |                                   ^
+<scratch space>:150:1: note: expanded from here
+  150 | rb_data_object_get_1
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:368:31: note: expanded from macro 'rb_data_object_get_1'
+  368 | #define rb_data_object_get_1  rb_data_object_get_warning
+      |                               ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:317:1: note: 'rb_data_object_get_warning' has been explicitly marked deprecated here
+  317 | RBIMPL_ATTRSET_UNTYPED_DATA_FUNC()
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:47:5: note: expanded from macro 'RBIMPL_ATTRSET_UNTYPED_DATA_FUNC'
+   47 |     RBIMPL_ATTR_DEPRECATED(("by TypedData"))
+      |     ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+thin.c:293:3: warning: 'rb_data_object_get_warning' is deprecated: by TypedData [-Wdeprecated-declarations]
+  293 |   DATA_GET(self, http_parser, http);
+      |   ^
+./ext_help.h:5:34: note: expanded from macro 'DATA_GET'
+    5 | #define DATA_GET(from,type,name) Data_Get_Struct(from,type,name); RAISE_NOT_NULL(name);
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:278:34: note: expanded from macro 'Data_Get_Struct'
+  278 |     ((sval) = RBIMPL_CAST((type*)rb_data_object_get(obj)))
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:370:31: note: expanded from macro 'rb_data_object_get'
+  370 | #define rb_data_object_get    RUBY_MACRO_SELECT(rb_data_object_get_2, RUBY_UNTYPED_DATA_WARNING)
+      |                               ^
+note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:49:35: note: expanded from macro 'RBIMPL_MACRO_SELECT'
+   49 | #define RBIMPL_MACRO_SELECT(x, y) x ## y
+      |                                   ^
+<scratch space>:152:1: note: expanded from here
+  152 | rb_data_object_get_1
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:368:31: note: expanded from macro 'rb_data_object_get_1'
+  368 | #define rb_data_object_get_1  rb_data_object_get_warning
+      |                               ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:317:1: note: 'rb_data_object_get_warning' has been explicitly marked deprecated here
+  317 | RBIMPL_ATTRSET_UNTYPED_DATA_FUNC()
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:47:5: note: expanded from macro 'RBIMPL_ATTRSET_UNTYPED_DATA_FUNC'
+   47 |     RBIMPL_ATTR_DEPRECATED(("by TypedData"))
+      |     ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+thin.c:324:3: warning: 'rb_data_object_get_warning' is deprecated: by TypedData [-Wdeprecated-declarations]
+  324 |   DATA_GET(self, http_parser, http);
+      |   ^
+./ext_help.h:5:34: note: expanded from macro 'DATA_GET'
+    5 | #define DATA_GET(from,type,name) Data_Get_Struct(from,type,name); RAISE_NOT_NULL(name);
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:278:34: note: expanded from macro 'Data_Get_Struct'
+  278 |     ((sval) = RBIMPL_CAST((type*)rb_data_object_get(obj)))
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:370:31: note: expanded from macro 'rb_data_object_get'
+  370 | #define rb_data_object_get    RUBY_MACRO_SELECT(rb_data_object_get_2, RUBY_UNTYPED_DATA_WARNING)
+      |                               ^
+note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:49:35: note: expanded from macro 'RBIMPL_MACRO_SELECT'
+   49 | #define RBIMPL_MACRO_SELECT(x, y) x ## y
+      |                                   ^
+<scratch space>:154:1: note: expanded from here
+  154 | rb_data_object_get_1
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:368:31: note: expanded from macro 'rb_data_object_get_1'
+  368 | #define rb_data_object_get_1  rb_data_object_get_warning
+      |                               ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:317:1: note: 'rb_data_object_get_warning' has been explicitly marked deprecated here
+  317 | RBIMPL_ATTRSET_UNTYPED_DATA_FUNC()
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:47:5: note: expanded from macro 'RBIMPL_ATTRSET_UNTYPED_DATA_FUNC'
+   47 |     RBIMPL_ATTR_DEPRECATED(("by TypedData"))
+      |     ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+thin.c:357:3: warning: 'rb_data_object_get_warning' is deprecated: by TypedData [-Wdeprecated-declarations]
+  357 |   DATA_GET(self, http_parser, http);
+      |   ^
+./ext_help.h:5:34: note: expanded from macro 'DATA_GET'
+    5 | #define DATA_GET(from,type,name) Data_Get_Struct(from,type,name); RAISE_NOT_NULL(name);
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:278:34: note: expanded from macro 'Data_Get_Struct'
+  278 |     ((sval) = RBIMPL_CAST((type*)rb_data_object_get(obj)))
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:370:31: note: expanded from macro 'rb_data_object_get'
+  370 | #define rb_data_object_get    RUBY_MACRO_SELECT(rb_data_object_get_2, RUBY_UNTYPED_DATA_WARNING)
+      |                               ^
+note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:49:35: note: expanded from macro 'RBIMPL_MACRO_SELECT'
+   49 | #define RBIMPL_MACRO_SELECT(x, y) x ## y
+      |                                   ^
+<scratch space>:160:1: note: expanded from here
+  160 | rb_data_object_get_1
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:368:31: note: expanded from macro 'rb_data_object_get_1'
+  368 | #define rb_data_object_get_1  rb_data_object_get_warning
+      |                               ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:317:1: note: 'rb_data_object_get_warning' has been explicitly marked deprecated here
+  317 | RBIMPL_ATTRSET_UNTYPED_DATA_FUNC()
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:47:5: note: expanded from macro 'RBIMPL_ATTRSET_UNTYPED_DATA_FUNC'
+   47 |     RBIMPL_ATTR_DEPRECATED(("by TypedData"))
+      |     ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+thin.c:372:3: warning: 'rb_data_object_get_warning' is deprecated: by TypedData [-Wdeprecated-declarations]
+  372 |   DATA_GET(self, http_parser, http);
+      |   ^
+./ext_help.h:5:34: note: expanded from macro 'DATA_GET'
+    5 | #define DATA_GET(from,type,name) Data_Get_Struct(from,type,name); RAISE_NOT_NULL(name);
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:278:34: note: expanded from macro 'Data_Get_Struct'
+  278 |     ((sval) = RBIMPL_CAST((type*)rb_data_object_get(obj)))
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:370:31: note: expanded from macro 'rb_data_object_get'
+  370 | #define rb_data_object_get    RUBY_MACRO_SELECT(rb_data_object_get_2, RUBY_UNTYPED_DATA_WARNING)
+      |                               ^
+note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:49:35: note: expanded from macro 'RBIMPL_MACRO_SELECT'
+   49 | #define RBIMPL_MACRO_SELECT(x, y) x ## y
+      |                                   ^
+<scratch space>:162:1: note: expanded from here
+  162 | rb_data_object_get_1
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:368:31: note: expanded from macro 'rb_data_object_get_1'
+  368 | #define rb_data_object_get_1  rb_data_object_get_warning
+      |                               ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:317:1: note: 'rb_data_object_get_warning' has been explicitly marked deprecated here
+  317 | RBIMPL_ATTRSET_UNTYPED_DATA_FUNC()
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:47:5: note: expanded from macro 'RBIMPL_ATTRSET_UNTYPED_DATA_FUNC'
+   47 |     RBIMPL_ATTR_DEPRECATED(("by TypedData"))
+      |     ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+thin.c:388:3: warning: 'rb_data_object_get_warning' is deprecated: by TypedData [-Wdeprecated-declarations]
+  388 |   DATA_GET(self, http_parser, http);
+      |   ^
+./ext_help.h:5:34: note: expanded from macro 'DATA_GET'
+    5 | #define DATA_GET(from,type,name) Data_Get_Struct(from,type,name); RAISE_NOT_NULL(name);
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:278:34: note: expanded from macro 'Data_Get_Struct'
+  278 |     ((sval) = RBIMPL_CAST((type*)rb_data_object_get(obj)))
+      |                                  ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:370:31: note: expanded from macro 'rb_data_object_get'
+  370 | #define rb_data_object_get    RUBY_MACRO_SELECT(rb_data_object_get_2, RUBY_UNTYPED_DATA_WARNING)
+      |                               ^
+note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:49:35: note: expanded from macro 'RBIMPL_MACRO_SELECT'
+   49 | #define RBIMPL_MACRO_SELECT(x, y) x ## y
+      |                                   ^
+<scratch space>:164:1: note: expanded from here
+  164 | rb_data_object_get_1
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:368:31: note: expanded from macro 'rb_data_object_get_1'
+  368 | #define rb_data_object_get_1  rb_data_object_get_warning
+      |                               ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:317:1: note: 'rb_data_object_get_warning' has been explicitly marked deprecated here
+  317 | RBIMPL_ATTRSET_UNTYPED_DATA_FUNC()
+      | ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/core/rdata.h:47:5: note: expanded from macro 'RBIMPL_ATTRSET_UNTYPED_DATA_FUNC'
+   47 |     RBIMPL_ATTR_DEPRECATED(("by TypedData"))
+      |     ^
+/opt/homebrew/Cellar/ruby/4.0.3/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+8 warnings generated.
+1 warning generated.
+linking shared-object thin_parser.bundle
+
+current directory: /Users/anuragpandey/Downloads/eyesight_cheacker-master/eyesight_checker-backend/vendor/bundle/ruby/4.0.0/gems/thin-2.0.1/ext/thin_parser
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260427-7023-1438s4 sitelibdir\=./.gem.20260427-7023-1438s4 install
+/usr/bin/install -c -m 0755 thin_parser.bundle ./.gem.20260427-7023-1438s4
+
+current directory: /Users/anuragpandey/Downloads/eyesight_cheacker-master/eyesight_checker-backend/vendor/bundle/ruby/4.0.0/gems/thin-2.0.1/ext/thin_parser
+make DESTDIR\= sitearchdir\=./.gem.20260427-7023-1438s4 sitelibdir\=./.gem.20260427-7023-1438s4 clean

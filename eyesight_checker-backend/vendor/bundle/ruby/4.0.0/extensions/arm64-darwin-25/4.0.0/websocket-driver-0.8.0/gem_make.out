@@ -1,0 +1,18 @@
+current directory: /Users/anuragpandey/Downloads/eyesight_cheacker-master/eyesight_checker-backend/vendor/bundle/ruby/4.0.0/gems/websocket-driver-0.8.0/ext/websocket-driver
+/opt/homebrew/opt/ruby/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/anuragpandey/Downloads/eyesight_cheacker-master/eyesight_checker-backend/vendor/bundle/ruby/4.0.0/gems/websocket-driver-0.8.0/ext/websocket-driver
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260427-7023-33ojjh sitelibdir\=./.gem.20260427-7023-33ojjh clean
+
+current directory: /Users/anuragpandey/Downloads/eyesight_cheacker-master/eyesight_checker-backend/vendor/bundle/ruby/4.0.0/gems/websocket-driver-0.8.0/ext/websocket-driver
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260427-7023-33ojjh sitelibdir\=./.gem.20260427-7023-33ojjh
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/anuragpandey/Downloads/eyesight_cheacker-master/eyesight_checker-backend/vendor/bundle/ruby/4.0.0/gems/websocket-driver-0.8.0/ext/websocket-driver
+make -j9 DESTDIR\= sitearchdir\=./.gem.20260427-7023-33ojjh sitelibdir\=./.gem.20260427-7023-33ojjh install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20260427-7023-33ojjh
+
+current directory: /Users/anuragpandey/Downloads/eyesight_cheacker-master/eyesight_checker-backend/vendor/bundle/ruby/4.0.0/gems/websocket-driver-0.8.0/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20260427-7023-33ojjh sitelibdir\=./.gem.20260427-7023-33ojjh clean
