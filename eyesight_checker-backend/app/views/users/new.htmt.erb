@@ -1,0 +1,15 @@
+<section class="new-user container">
+    <div class="form-group col-md-6"> 
+        <h2>Create your account</h2>
+        <p><%= @error %></p>
+        <%= form_for @user do |f| %>
+            <p>Name: <%= f.text_field :name, :class => "form-control" %></p>
+            <p>Password: <%= f.text_field :password, :class => "form-control" %></p>
+            <p>Email: <%= f.text_field :email, :class => "form-control" %></p>
+            <br><%= f.submit "Signup", :class => "btn btn-dark" %>  
+        <% end %>
+        <br><p>Login with your social media account</p>
+        <%= link_to(raw("<i class=\"fab fa-facebook-f\"></i> Facebook"), "/auth/facebook", {:class => "btn btn-lg btn-primary active"}) %> 
+    </div>
+</section>
+

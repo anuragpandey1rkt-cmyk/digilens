@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link href="styles.css" rel="stylesheet">
+    
+    <script src="src/user.js"></script>
+    <script src="src/users_test.js"></script>
+    <script src="src/db_tests/contrast_test.js"></script>
+    <script defer src="src/contrast_test.js"></script>
+    <script src="src/db_tests/perception_test.js"></script>
+    <script defer src="src/perception_test.js"></script>
+    <script src="index.js"></script>
+
+    <title>Check your vision App</title>
+</head>
+    <body>
+        <h1>CHECK YOUR VISION ONLINE </h1>
+        <div id="users-form" class="hide">
+            <h3>Please log in to start a test</h3>   
+        </div>
+
+        <div id="users-container">
+            <h2>ALL USERS</h2>
+        </div>
+
+        <div id="users-test-container">  
+            <h2>USERS RESULTS: </h2>
+        </div>
+
+        <div id="main-test" class="container">
+            <h2>CONTRAST TEST</h2>
+            <div id="question-container" class="hide">
+                <div id="question">Question</div>
+                <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="start-btn" class="start-btn btn">Start Test</button>
+                <button id="next-btn" class="next-btn btn hide">Next</button>
+                <button id="close-btn" class="close-btn btn hide">Next</button>
+            </div>
+            <h4>Here below you can see number of questions you answered correctly: </h4>
+            <span id="right-answers"></span>
+        </div>
+
+
+        <div id="main-test-2" class="container-2">
+            <h2>PERCEPTION TEST</h2>
+            <div id="question-container-2" class="hide">
+                <div id="question-2">Question</div>
+                <div id="answer-buttons-2" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                </div>
+            </div>
+            <div class="controls-2">
+                <button id="start-btn-2" class="start-btn btn">Start Test</button>
+                <button id="next-btn-2" class="next-btn btn hide">Next</button>
+                <button id="close-btn-2" class="close-btn btn hide">Next</button>
+            </div>
+            <h4>Here below you can see number of questions you answered correctly: </h4>
+            <span id="right-answers-2"></span>
+        </div>
+
+
+    </body>
+</html>
